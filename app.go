@@ -8,10 +8,16 @@ import (
 	"net/http"
 )
 
+/**
+Main Application
+*/
 func main() {
 	CassandraSession := cassandra.Session
 	defer CassandraSession.Close()
 	router := mux.NewRouter().StrictSlash(true)
+	/**
+	  Expose all the routes
+	*/
 	routes.HandleHttpRequest(router)
 	log.Println("Application started")
 	//cassandra.CreateKeys()
