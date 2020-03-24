@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/poc/url-shortner/models"
 	"github.com/poc/url-shortner/repository"
@@ -28,8 +29,7 @@ func GetHash(w http.ResponseWriter, r *http.Request) {
 	body, _ := ioutil.ReadAll(r.Body)
 	url.OriginalUrl = string(body)
 	repository.CreatUrl(url)
-	str := "http://toko/" + hash
-	json.NewEncoder(w).Encode(Response{Status: "success", Code: 200, Hash: str})
+	json.NewEncoder(w).Encode(Response{Status: "success", Code: 200, Hash: hash})
 }
 
 func RedirectURL(w http.ResponseWriter, r *http.Request) {
@@ -40,13 +40,13 @@ func RedirectURL(w http.ResponseWriter, r *http.Request) {
 	url = repository.GetOriginalURL(hash)
 	var str string
 	str = url[0].OriginalUrl
-	http.Redirect(w, r, str, 301)
+	http.Redirect(w, r, str, http.StatusMovedPermanently)
 
-//	var client *http.Client
-//client= &http.Client{
-//	CheckRedirect: func(req *http.Request, via []*http.Request) error {
-//
-//		return errors.New("something bad happened") // or maybe the error from the request
-//	},
-//}
+	var client *http.Client
+	client = &http.Client{
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse // or maybe the error from the request
+		},
+	}
+	fmt.Println(client)
 }
