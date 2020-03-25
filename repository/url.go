@@ -30,7 +30,6 @@ func GetOriginalURL(key string) (url []models.Url, err error) {
 	m := map[string]interface{}{}
 	var urlQuery *gocql.Iter
 	urlQuery = cassandra.Session.Query("Select * from url where hash= ?", key).Iter()
-	urlQuery.Close()
 	if urlQuery.NumRows() <= 0 {
 		err = errors.New("No mapping exists for key: " + key)
 		return
