@@ -7,7 +7,7 @@
 `` cqlsh``
 4. Run following queries:<br/>
 
-a. CREATE KEYSPACE = test
+a. CREATE KEYSPACE = dev
      WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }; <br/>
      
 b. CREATE TABLE url (
