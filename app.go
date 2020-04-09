@@ -22,5 +22,5 @@ func main() {
 	log.Println("Application started")
 	//cassandra.CreateKeys()
 	log.Fatal(http.ListenAndServe(":8090", router))
-	log.Println("Application started")
+	log.Println("Application started on : 8090")
 }
