@@ -5,7 +5,8 @@ import (
 	"github.com/poc/url-shortner/handler"
 )
 
-func HandleHttpRequest(router *mux.Router){
+func HandleHttpRequest(router *mux.Router) {
+	router.HandleFunc("/redirect", handler.GetPage)
 	router.HandleFunc("/create", handler.GetHash)
-	router.HandleFunc("/toko/{pattern}", handler.RedirectURL)
+	router.HandleFunc("/tokopedia/{pattern}", handler.GetURL)
 }
