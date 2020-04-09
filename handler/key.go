@@ -160,3 +160,14 @@ func generateURL(urlArray []string, os string) (result string) {
 func GetPage(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./static/branch.html")
 }
+
+func CreateKeys(w http.ResponseWriter, r *http.Request) {
+	err := repository.CreateKeys()
+	if err != nil {
+		log.Println("Error Occurred", error.Error(err))
+		json.NewEncoder(w).Encode(Response{Status: "Failed", Code: http.StatusBadGateway, ErrorMessage: error.Error(err)})
+		return
+	}
+	json.NewEncoder(w).Encode(Response{Status: "Success", Code: 200})
+	return
+}
