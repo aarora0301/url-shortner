@@ -5,9 +5,10 @@
 `` Cassandra -f ``
 3. Enter into the shell mode with command</br>
 `` cqlsh``
-4. Run following queries:<br/>
+4. Run following queries:
 
-```a. CREATE KEYSPACE = dev
+````
+a. CREATE KEYSPACE = dev
      WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }; <br/>
      
 b. CREATE TABLE url (
@@ -26,4 +27,4 @@ d. CREATE TABLE available_key (
        key text PRIMARY KEY
    ) <br/> 
    
-   
+  
