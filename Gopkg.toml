@@ -33,9 +33,9 @@
   name = "github.com/gorilla/mux"
   version = "1.7.4"
 
-[[constraint]]
-  branch = "staging"
-  name = "github.com/tokopedia/cm"
+#[[constraint]]
+ # branch = "staging"
+  #name = "github.com/tokopedia/cm"
 
 [prune]
   go-tests = true
@@ -43,3 +43,5 @@
 
 [metadata.heroku]
   root-package = "url-shortner"
+  install = [ "./..." ]
+  go-version="go1.13.6"
