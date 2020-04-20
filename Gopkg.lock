@@ -47,14 +47,6 @@
   version = "v3.0.1"
 
 [[projects]]
-  branch = "staging"
-  digest = "1:89448738e499cb6de6fae32e3ef1bfb145b6c6e631679e1a128ed38acb28cea0"
-  name = "github.com/tokopedia/cm"
-  packages = ["util"]
-  pruneopts = "UT"
-  revision = "b8621c829b96a08434c1d75c9fb255fc8253f768"
-
-[[projects]]
   digest = "1:2d1fbdc6777e5408cabeb02bf336305e724b925ff4546ded0fa8715a7267922a"
   name = "gopkg.in/inf.v0"
   packages = ["."]
@@ -68,7 +60,6 @@
   input-imports = [
     "github.com/gocql/gocql",
     "github.com/gorilla/mux",
-    "github.com/tokopedia/cm/util",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
